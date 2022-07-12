@@ -1,4 +1,11 @@
 import speech_recognition as sr
+import pyttsx3
+
+
+def text_to_speech(text: str) -> None:
+    text_speech = pyttsx3.init()
+    text_speech.say(text)
+    text_speech.runAndWait()
 
 
 def speech_to_text():
@@ -11,7 +18,8 @@ def speech_to_text():
 
         text = r.recognize_google(audio)
         print(f"This is what you said :\n {text}")
+        return text
 
 
 if __name__ == '__main__':
-    speech_to_text()
+    text_to_speech(speech_to_text())
